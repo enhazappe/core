@@ -118,6 +118,9 @@ class EntityCaseTest extends \Tester\TestCase
         $animalEntity->weight = 15;
         $animalEntity->birth = new \Nette\Utils\DateTime('2015-01-01 12:00:00');
         $animalEntity->parameters = ['color' => 'brown', 'ears' => 2, 'eyes' => 1];
+        $animalEntity->death = null;
+        $animalEntity->vaccinated = 1;
+        $animalEntity->height = 50;
 
         $repository = new AnimalRepository($this->Service->database);
         $repository->save($animalEntity);
