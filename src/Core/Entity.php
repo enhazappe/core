@@ -112,19 +112,19 @@ abstract class Entity extends \YetORM\Entity
                     }
 
                     /**
-                     * Convert strings to int
+                     * Convert bool to int
                      */
-                    if($property->getType() == 'int' && !empty($values[$name]))
+                    if($property->getType() == 'int' && is_bool($values[$name]))
                     {
-                        $values[$name] = intval($values[$name]);
+                        $values[$name] = $values[$name] ? 1 : 0;
                     }
 
                     /**
-                     * Convert bool to int
+                     * Convert strings to int
                      */
-                    elseif($property->getType() == 'int' && is_bool($values[$name]))
+                    elseif($property->getType() == 'int' && !empty($values[$name]))
                     {
-                        $values[$name] = $values[$name] ? 1 : 0;
+                        $values[$name] = intval($values[$name]);
                     }
 
                     /**
